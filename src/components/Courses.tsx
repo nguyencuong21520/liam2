@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
-import {
-  AcademicCapIcon,
-  ClockIcon,
-  UserGroupIcon,
-} from "@heroicons/react/24/outline";
+// import {
+//   AcademicCapIcon,
+//   ClockIcon,
+//   UserGroupIcon,
+// } from "@heroicons/react/24/outline";
 
 const Courses = () => {
   const courses = [
