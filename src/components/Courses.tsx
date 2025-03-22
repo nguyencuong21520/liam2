@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
-// import {
-//   AcademicCapIcon,
-//   ClockIcon,
-//   UserGroupIcon,
-// } from "@heroicons/react/24/outline";
+import { Card } from "./ui/card";
+import { ButtonLink } from "./ui/button-link";
+import {
+  AcademicCapIcon,
+  ClockIcon,
+  UserGroupIcon,
+} from "@heroicons/react/24/outline";
 
 const Courses = () => {
   const courses = [
@@ -66,37 +68,56 @@ const Courses = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className="bg-background-light dark:bg-background-dark rounded-lg overflow-hidden shadow-sm transition-colors duration-200"
             >
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-text-light dark:text-text-dark mb-3">
-                  {course.title}
-                </h3>
-                <p className="text-secondary-light dark:text-secondary-dark mb-4">
-                  {course.description}
-                </p>
-                <div className="space-y-2">
-                  <div className="flex justify-between text-sm">
-                    <span className="text-secondary-light dark:text-secondary-dark">
-                      Thời gian:
-                    </span>
-                    <span className="text-text-light dark:text-text-dark font-medium">
-                      {course.duration}
-                    </span>
+              <Card gradient className="h-full">
+                <div className="p-6">
+                  <div
+                    className="h-48 mb-6 rounded-lg bg-cover bg-center"
+                    style={{ backgroundImage: `url(${course.image})` }}
+                  />
+                  <h3 className="text-xl font-semibold text-text-light dark:text-text-dark mb-3">
+                    {course.title}
+                  </h3>
+                  <p className="text-secondary-light dark:text-secondary-dark mb-4">
+                    {course.description}
+                  </p>
+                  <div className="space-y-2 mb-6">
+                    <div className="flex items-center text-sm">
+                      <ClockIcon className="h-5 w-5 text-primary-light dark:text-primary-dark mr-2" />
+                      <span className="text-secondary-light dark:text-secondary-dark">
+                        Thời gian:
+                      </span>
+                      <span className="ml-auto text-text-light dark:text-text-dark font-medium">
+                        {course.duration}
+                      </span>
+                    </div>
+                    <div className="flex items-center text-sm">
+                      <UserGroupIcon className="h-5 w-5 text-primary-light dark:text-primary-dark mr-2" />
+                      <span className="text-secondary-light dark:text-secondary-dark">
+                        Học viên:
+                      </span>
+                      <span className="ml-auto text-text-light dark:text-text-dark font-medium">
+                        {course.students}
+                      </span>
+                    </div>
+                    <div className="flex items-center text-sm">
+                      <AcademicCapIcon className="h-5 w-5 text-primary-light dark:text-primary-dark mr-2" />
+                      <span className="text-secondary-light dark:text-secondary-dark">
+                        Trình độ:
+                      </span>
+                      <span className="ml-auto text-text-light dark:text-text-dark font-medium">
+                        {course.level}
+                      </span>
+                    </div>
                   </div>
-                  <div className="flex justify-between text-sm">
-                    <span className="text-secondary-light dark:text-secondary-dark">
-                      Trình độ:
-                    </span>
-                    <span className="text-text-light dark:text-text-dark font-medium">
-                      {course.level}
-                    </span>
-                  </div>
+                  <ButtonLink
+                    className="w-full"
+                    href={`#contact?course=${encodeURIComponent(course.title)}`}
+                  >
+                    Đăng Ký Ngay
+                  </ButtonLink>
                 </div>
-                <button className="w-full mt-6 bg-primary-light dark:bg-primary-dark text-white px-4 py-2 rounded-lg font-medium hover:bg-primary-light/90 dark:hover:bg-primary-dark/90 transition-colors">
-                  Đăng Ký Ngay
-                </button>
-              </div>
+              </Card>
             </motion.div>
           ))}
         </div>

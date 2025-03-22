@@ -33,7 +33,7 @@ const Navbar = () => {
               href="#"
               className="text-2xl font-bold text-primary-light dark:text-primary-dark"
             >
-              Lâm Tech Talk
+              Liam Tech Talk
             </a>
           </div>
 

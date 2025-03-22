@@ -12,9 +12,9 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-background-light dark:bg-background-dark transition-colors duration-200">
+      <div className="min-h-screen flex flex-col bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
         <Navbar />
-        <main>
+        <main className="flex-grow">
           <Hero />
           <About />
           <Skills />
